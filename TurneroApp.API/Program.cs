@@ -15,8 +15,9 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
         builder => builder.WithOrigins("https://turnero-app.onrender.com", "http://localhost:3000")
+                          .AllowAnyHeader()
                           .AllowAnyMethod()
-                          .AllowAnyHeader());
+                          .AllowCredentials());
 });
 
 
@@ -107,7 +108,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapHub<TurnoHub>("/turnoHub");
+app.MapHub<TurnoHub>("/api/turnoHub");
 
 app.MapControllers();
 
