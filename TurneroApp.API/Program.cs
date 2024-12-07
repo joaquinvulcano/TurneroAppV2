@@ -14,7 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("https://turnero-app.onrender.com")
+        builder => builder.WithOrigins("https://turnero-app.onrender.com", "http://localhost:3000")
                           .AllowAnyMethod()
                           .AllowAnyHeader());
 });
