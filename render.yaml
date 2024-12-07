@@ -1,0 +1,14 @@
+version: 1
+services:
+  - type: web
+    name: TurneroApp
+    env: docker
+    docker:
+      dockerfilePath: TurneroApp.API/Dockerfile
+    buildCommand: ""
+    startCommand: "dotnet TurneroApp.API.dll"
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        value: "Server=mysql.railway.internal;Database=railway;User=root;Password=CasDAHMwTBUJbeapGcPVQlVIazZFeKUu;"

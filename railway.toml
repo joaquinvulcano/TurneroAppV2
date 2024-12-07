@@ -1,8 +1,0 @@
-[build]
-builder = "dockerfile"
-dokerfilePath = "./TurneroApp.API/Dockerfile"
-
-[deploy]
-startCommand = "TurneroApp.API.dll"
-restartPolicyType = "always"
-healthcheckPath = "/health"
