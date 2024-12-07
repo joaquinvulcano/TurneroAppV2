@@ -5,7 +5,7 @@ using TurneroApp.API.Interface;
 
 namespace TurneroApp.API.Controllers
 {
-    [Route("Turno")]
+    [Route("api/Turno")]
     [ApiController]
     public class TurneroController : ControllerBase
     {
