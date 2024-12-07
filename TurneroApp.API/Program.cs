@@ -6,6 +6,16 @@ using TurneroApp.API.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("https://turnero-app.onrender.com")
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+});
+
+
 var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json")
