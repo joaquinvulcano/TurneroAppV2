@@ -52,7 +52,7 @@ namespace TurneroApp.API.Service
                     Numero = nuevoNumero,
                     Nombre = turnoCreateDto.Nombre,
                     TipoServicio = turnoCreateDto.TipoServicio,
-                    FechaCreacion = DateTime.Now,
+                    FechaCreacion = DateTime.UtcNow,
                     Estado = "Pendiente"
                 };
 
