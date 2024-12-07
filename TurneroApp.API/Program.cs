@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("https://turnero-app.onrender.com")
+        builder => builder.WithOrigins("https://colorathe.online")
                           .AllowAnyMethod()
                           .AllowAnyHeader());
 });
