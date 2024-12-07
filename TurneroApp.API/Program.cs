@@ -12,7 +12,7 @@ var configuration = new ConfigurationBuilder()
     .Build();
 
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-builder.WebHost.UseUrls($"http://*:port{port}");
+builder.WebHost.UseUrls($"http://*:{port}");
 
 builder.Services.AddHealthChecks();
 
