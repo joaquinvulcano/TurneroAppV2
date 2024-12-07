@@ -11,6 +11,7 @@ namespace TurneroApp.API.Context
         public DbSet<Turno> Turnos { get; set; }
         public DbSet<Servicio> Servicios { get; set; }
         public DbSet<HistorialTurno> HistorialTurnos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TurneroApp.API.DTOs;
 using TurneroApp.API.Interface;
 
@@ -21,6 +22,8 @@ namespace TurneroApp.API.Controllers
         /// <param name="turnoCreateDto">Los datos del turno a crear.</param>
         /// <returns>Un objeto <see cref="TurnoDto"/> que representa el turno creado.</returns>
         [HttpPost]
+        [Authorize]
+
         public async Task<ActionResult<TurnoDto>> CrearTurno(TurnoCreateDto turnoCreateDto)
         {
             try
@@ -39,6 +42,8 @@ namespace TurneroApp.API.Controllers
         /// </summary>
         /// <returns>Un objeto <see cref="TurnoDto"/> que representa el siguiente turno.</returns>
         [HttpPut("llamar-siguiente")]
+        [Authorize]
+
         public async Task<ActionResult<TurnoDto>> LlamarSiguienteTurno()
         {
             try
@@ -58,6 +63,8 @@ namespace TurneroApp.API.Controllers
         /// <param name="numeroTurno">El número del turno a cancelar.</param>
         /// <returns>True si el turno fue cancelado, de lo contrario, false.</returns>
         [HttpPut("cancelar/{numeroTurno}")]
+        [Authorize]
+
         public async Task<ActionResult<bool>> CancelarTurno(string numeroTurno)
         {
             try
@@ -81,6 +88,8 @@ namespace TurneroApp.API.Controllers
         /// <param name="numero">El número del turno cuya llamada se desea cancelar.</param>
         /// <returns>Un mensaje de éxito o un error si el turno no se encuentra.</returns>
         [HttpPut("cancelar-llamada/{numero}")]
+        [Authorize]
+
         public async Task<IActionResult> CancelarLlamada(string numero)
         {
             try
@@ -104,6 +113,8 @@ namespace TurneroApp.API.Controllers
         /// </summary>
         /// <returns>Una lista de próximos turnos.</returns>
         [HttpGet("proximos-turnos")]
+        [Authorize]
+
         public async Task<IActionResult> GetProximosTurnos()
         {
             try
@@ -122,6 +133,8 @@ namespace TurneroApp.API.Controllers
         /// </summary>
         /// <returns>Una cuenta de la cantidad de turnos pendientes.</returns>
         [HttpGet("turnos-pendientes")]
+        [Authorize]
+
         public async Task<IActionResult> GetTurnosPendientes()
         {
             try
@@ -141,6 +154,8 @@ namespace TurneroApp.API.Controllers
         /// <param name="nombreServicio">El nombre del servicio a agregar.</param>
         /// <returns>Un mensaje de éxito o un error si el servicio ya existe.</returns>
         [HttpPost("agregar-servicio")]
+        [Authorize]
+
         public async Task<IActionResult> AgregarServicio([FromBody] string nombreServicio)
         {
             try
@@ -164,6 +179,8 @@ namespace TurneroApp.API.Controllers
         /// </summary>
         /// <returns>Una lista de servicios.</returns>
         [HttpGet("traer-servicios")]
+        [Authorize]
+
         public async Task<IActionResult> GetServicios()
         {
             try
@@ -183,6 +200,8 @@ namespace TurneroApp.API.Controllers
         /// <param name="nombreServicio">El nombre del servicio a eliminar.</param>
         /// <returns>Un mensaje de éxito o un error si el servicio no existe.</returns>
         [HttpDelete("eliminar-servicio/{nombreServicio}")]
+        [Authorize]
+
         public async Task<IActionResult> EliminarServicio(string nombreServicio)
         {
             try
@@ -206,6 +225,8 @@ namespace TurneroApp.API.Controllers
         /// </summary>
         /// <returns>Un mensaje de éxito o un error si ocurre un problema.</returns>
         [HttpDelete("resetear-turnos")]
+        [Authorize]
+
         public async Task<IActionResult> ResetearTurnos()
         {
             try
@@ -229,6 +250,8 @@ namespace TurneroApp.API.Controllers
         /// </summary>
         /// <returns>Un objeto con las estadísticas de los turnos.</returns>
         [HttpGet("estadisticas")]
+        [Authorize]
+
         public async Task<IActionResult> GetEstadisticas()
         {
             try
